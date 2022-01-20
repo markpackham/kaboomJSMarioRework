@@ -1,3 +1,6 @@
+// need to have parcel installed to run this
+// other choices would have been the bundlers esbuild or webpack
+
 import kaboom from "kaboom";
 
 kaboom({
