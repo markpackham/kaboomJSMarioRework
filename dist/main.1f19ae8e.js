@@ -4689,12 +4689,52 @@ var _kaboom = _interopRequireDefault(require("kaboom"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _kaboom.default)({
-  background: [134, 135, 247],
-  width: 320,
-  height: 240,
-  scale: 2
+// need to have parcel installed to run this
+// other choices would have been the bundlers esbuild or webpack
+(0, _kaboom.default)();
+var block_size = 20;
+var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
+  width: block_size,
+  height: block_size,
+  pos: vec2(0, 0),
+  "=": function _() {
+    return [rect(block_size, block_size), color(255, 0, 0), area(), "wall"];
+  }
 });
+var directions = {
+  UP: "up",
+  DOWN: "down",
+  LEFT: "left",
+  RIGHT: "right"
+};
+var current_direction = directions.RIGHT;
+var run_action = false;
+var snake_length = 3;
+var snake_body = [];
+
+function respawn_snake() {
+  destroyAll("snake");
+  snake_body = [];
+  snake_length = 3;
+
+  for (var i = 1; i <= snake_length; i++) {
+    var segment = add([rect(block_size, block_size), pos(block_size, block_size * i), color(0, 0, 255), area(), "snake"]);
+    snake_body.push(segment);
+  }
+
+  ;
+  current_direction = directions.RIGHT;
+}
+
+function respawn_all() {
+  run_action = false;
+  wait(0.5, function () {
+    respawn_snake();
+    run_action = true;
+  });
+}
+
+respawn_all();
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -4723,7 +4763,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53106" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60880" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
