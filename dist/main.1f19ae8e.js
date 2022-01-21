@@ -4722,7 +4722,6 @@ function respawn_snake() {
     snake_body.push(segment);
   }
 
-  ;
   current_direction = directions.RIGHT;
 }
 
@@ -4735,6 +4734,68 @@ function respawn_all() {
 }
 
 respawn_all();
+onKeyPress("up", function () {
+  if (current_direction != directions.DOWN) {
+    current_direction = directions.UP;
+  }
+});
+onKeyPress("down", function () {
+  if (current_direction != directions.UP) {
+    current_direction = directions.DOWN;
+  }
+});
+onKeyPress("left", function () {
+  if (current_direction != directions.RIGHT) {
+    current_direction = directions.LEFT;
+  }
+});
+onKeyPress("right", function () {
+  if (current_direction != directions.LEFT) {
+    current_direction = directions.RIGHT;
+  }
+});
+var move_delay = 0.2;
+var timer = 0;
+onUpdate(function () {
+  if (!run_action) return;
+  timer += dt();
+  if (timer < move_delay) return;
+  timer = 0;
+  var move_x = 0;
+  var move_y = 0;
+
+  switch (current_direction) {
+    case directions.DOWN:
+      move_x = 0;
+      move_y = block_size;
+      break;
+
+    case directions.UP:
+      move_x = 0;
+      move_y = -1 * block_size;
+      break;
+
+    case directions.LEFT:
+      move_x = -1 * block_size;
+      move_y = 0;
+      break;
+
+    case directions.RIGHT:
+      move_x = block_size;
+      move_y = 0;
+      break;
+  } // Get the last element (the snake head)
+
+
+  var snake_head = snake_body[snake_body.length - 1];
+  snake_body.push(add([rect(block_size, block_size), pos(snake_head.pos.x + move_x, snake_head.pos.y + move_y), color(0, 0, 255), area(), "snake"]));
+
+  if (snake_body.length > snake_length) {
+    var tail = snake_body.shift(); // Remove the last of the tail
+
+    destroy(tail);
+  }
+});
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -4763,7 +4824,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60880" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60793" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
