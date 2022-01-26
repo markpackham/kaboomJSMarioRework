@@ -4691,7 +4691,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
-(0, _kaboom.default)();
+(0, _kaboom.default)(); // Creating map & key variables
+
 var block_size = 20;
 var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
   width: block_size,
@@ -4710,7 +4711,7 @@ var directions = {
 var current_direction = directions.RIGHT;
 var run_action = false;
 var snake_length = 3;
-var snake_body = [];
+var snake_body = []; // Spawn Snake
 
 function respawn_snake() {
   destroyAll("snake");
@@ -4729,11 +4730,13 @@ function respawn_all() {
   run_action = false;
   wait(0.5, function () {
     respawn_snake();
+    respawn_food();
     run_action = true;
   });
 }
 
-respawn_all();
+respawn_all(); // Snake movement keys
+
 onKeyPress("up", function () {
   if (current_direction != directions.DOWN) {
     current_direction = directions.UP;
@@ -4755,7 +4758,8 @@ onKeyPress("right", function () {
   }
 });
 var move_delay = 0.2;
-var timer = 0;
+var timer = 0; // Kaboom.js has a function onUpdate which can be used to update game objects on each frame
+
 onUpdate(function () {
   if (!run_action) return;
   timer += dt();
@@ -4795,7 +4799,22 @@ onUpdate(function () {
 
     destroy(tail);
   }
-});
+}); // Spawn snake food
+
+var food = null;
+
+function respawn_food() {
+  var new_pos = rand(vec2(1, 1), vec2(13, 13));
+  new_pos.x = Math.floor(new_pos.x);
+  new_pos.y = Math.floor(new_pos.y);
+  new_pos = new_pos.scale(block_size);
+
+  if (food) {
+    destroy(food);
+  }
+
+  food = add([rect(block_size, block_size), color(0, 255, 0), pos(new_pos), area(), "food"]);
+}
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -4824,7 +4843,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
