@@ -6,7 +6,7 @@ import kaboom from "kaboom";
 kaboom();
 
 // Creating map & key variables
-const block_size = 20;
+const block_size = 50;
 
 const map = addLevel(
   [

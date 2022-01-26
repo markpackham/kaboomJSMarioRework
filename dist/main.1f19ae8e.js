@@ -4693,7 +4693,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // other choices would have been the bundlers esbuild or webpack
 (0, _kaboom.default)(); // Creating map & key variables
 
-var block_size = 20;
+var block_size = 50;
 var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
   width: block_size,
   height: block_size,
