@@ -4736,6 +4736,7 @@ function respawn_all() {
 }
 
 respawn_all(); // Snake movement keys
+// Click on the browser Window first for keys to be used
 
 onKeyPress("up", function () {
   if (current_direction != directions.DOWN) {
@@ -4814,7 +4815,15 @@ function respawn_food() {
   }
 
   food = add([rect(block_size, block_size), color(0, 255, 0), pos(new_pos), area(), "food"]);
-}
+} // Collision detection
+// onCollide. The function takes in 2 tags for different game object types,
+// and calls a provided callback function if there is a collision of the objects.
+
+
+onCollide("snake", "food", function (s, f) {
+  snake_length++;
+  respawn_food();
+});
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -4843,7 +4852,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49285" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

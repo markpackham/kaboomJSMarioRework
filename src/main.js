@@ -77,6 +77,7 @@ function respawn_all() {
 respawn_all();
 
 // Snake movement keys
+// Click on the browser Window first for keys to be used
 onKeyPress("up", () => {
   if (current_direction != directions.DOWN) {
     current_direction = directions.UP;
@@ -172,3 +173,11 @@ function respawn_food() {
     "food",
   ]);
 }
+
+// Collision detection
+// onCollide. The function takes in 2 tags for different game object types,
+// and calls a provided callback function if there is a collision of the objects.
+onCollide("snake", "food", (s, f) => {
+  snake_length++;
+  respawn_food();
+});
