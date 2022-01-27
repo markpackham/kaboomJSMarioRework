@@ -4693,7 +4693,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // other choices would have been the bundlers esbuild or webpack
 (0, _kaboom.default)(); // Load sprites
 
-loadSprite("pizza", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png"); // Creating map & key variables
+loadSprite("pizza", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png");
+loadSprite("background", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/background.png"); // Background
+
+layers(["background", "game"], "game");
+add([sprite("background"), layer("background")]); // Creating map & key variables
 
 var block_size = 50;
 var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
@@ -4868,7 +4872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53909" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61708" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

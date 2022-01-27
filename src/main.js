@@ -10,6 +10,15 @@ loadSprite(
   "pizza",
   "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png"
 );
+loadSprite(
+  "background",
+  "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/background.png"
+);
+
+// Background
+layers(["background", "game"], "game");
+
+add([sprite("background"), layer("background")]);
 
 // Creating map & key variables
 const block_size = 50;
