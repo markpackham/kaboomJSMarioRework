@@ -175,9 +175,19 @@ function respawn_food() {
 }
 
 // Collision detection
+
 // onCollide. The function takes in 2 tags for different game object types,
 // and calls a provided callback function if there is a collision of the objects.
+// Food collision
 onCollide("snake", "food", (s, f) => {
   snake_length++;
   respawn_food();
+});
+
+// Wall collision
+onCollide("snake", "wall", (s, f) => {
+  run_action = false;
+  // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
+  shake(12);
+  respawn_all();
 });

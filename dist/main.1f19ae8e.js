@@ -4818,11 +4818,19 @@ function respawn_food() {
 } // Collision detection
 // onCollide. The function takes in 2 tags for different game object types,
 // and calls a provided callback function if there is a collision of the objects.
+// Food collision
 
 
 onCollide("snake", "food", function (s, f) {
   snake_length++;
   respawn_food();
+}); // Wall collision
+
+onCollide("snake", "wall", function (s, f) {
+  run_action = false; // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
+
+  shake(12);
+  respawn_all();
 });
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -4852,7 +4860,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49285" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59439" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
