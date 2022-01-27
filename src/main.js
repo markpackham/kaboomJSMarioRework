@@ -5,6 +5,12 @@ import kaboom from "kaboom";
 
 kaboom();
 
+// Load sprites
+loadSprite(
+  "pizza",
+  "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png"
+);
+
 // Creating map & key variables
 const block_size = 50;
 
@@ -170,13 +176,7 @@ function respawn_food() {
   if (food) {
     destroy(food);
   }
-  food = add([
-    rect(block_size, block_size),
-    color(0, 255, 0),
-    pos(new_pos),
-    area(),
-    "food",
-  ]);
+  food = add([sprite("pizza"), pos(new_pos), area(), "food"]);
 }
 
 // Collision detection

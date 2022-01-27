@@ -4691,7 +4691,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
-(0, _kaboom.default)(); // Creating map & key variables
+(0, _kaboom.default)(); // Load sprites
+
+loadSprite("pizza", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png"); // Creating map & key variables
 
 var block_size = 50;
 var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
@@ -4814,7 +4816,7 @@ function respawn_food() {
     destroy(food);
   }
 
-  food = add([rect(block_size, block_size), color(0, 255, 0), pos(new_pos), area(), "food"]);
+  food = add([sprite("pizza"), pos(new_pos), area(), "food"]);
 } // Collision detection
 // onCollide. The function takes in 2 tags for different game object types,
 // and calls a provided callback function if there is a collision of the objects.
@@ -4866,7 +4868,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59487" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53909" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
