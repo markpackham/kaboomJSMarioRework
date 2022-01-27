@@ -4682,6 +4682,16 @@ var Es = i((e = {}) => {
   }), Xe;
 }, "default");
 exports.default = Es;
+},{}],"directions.js":[function(require,module,exports) {
+var directions = {
+  UP: "up",
+  DOWN: "down",
+  LEFT: "left",
+  RIGHT: "right"
+};
+module.exports = {
+  directions: directions
+};
 },{}],"main.js":[function(require,module,exports) {
 "use strict";
 
@@ -4691,6 +4701,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
+var _require = require("./directions.js"),
+    directions = _require.directions;
+
 (0, _kaboom.default)(); // Load sprites
 
 loadSprite("donut", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/donut.png");
@@ -4708,12 +4721,6 @@ var map = addLevel(["==================", "=                = ", "=             
     return [rect(block_size, block_size), color(255, 0, 100), area(), "wall"];
   }
 });
-var directions = {
-  UP: "up",
-  DOWN: "down",
-  LEFT: "left",
-  RIGHT: "right"
-};
 var current_direction = directions.RIGHT;
 var run_action = false;
 var snake_length = 3;
@@ -4854,7 +4861,7 @@ onCollide("snake", "snake", function (s, t) {
   score.text = "Score: " + score.value;
   respawn_all();
 });
-},{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs","./directions.js":"directions.js"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4882,7 +4889,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64754" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62662" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

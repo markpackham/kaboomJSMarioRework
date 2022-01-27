@@ -3,6 +3,8 @@
 
 import kaboom from "kaboom";
 
+const { directions } = require("./directions.js");
+
 kaboom();
 
 // Load sprites
@@ -51,13 +53,6 @@ const map = addLevel(
     ],
   }
 );
-
-const directions = {
-  UP: "up",
-  DOWN: "down",
-  LEFT: "left",
-  RIGHT: "right",
-};
 
 let current_direction = directions.RIGHT;
 let run_action = false;
