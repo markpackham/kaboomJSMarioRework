@@ -197,6 +197,8 @@ function respawn_food() {
 // Food collision
 onCollide("snake", "food", (s, f) => {
   snake_length++;
+  score.value += 1;
+  score.text = "Score: " + score.value;
   respawn_food();
 });
 
@@ -205,6 +207,8 @@ onCollide("snake", "wall", (s, f) => {
   run_action = false;
   // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
   shake(12);
+  score.value = 0;
+  score.text = "Score: " + score.value;
   respawn_all();
 });
 
@@ -212,5 +216,7 @@ onCollide("snake", "wall", (s, f) => {
 onCollide("snake", "snake", (s, t) => {
   run_action = false;
   shake(12);
+  score.value = 0;
+  score.text = "Score: " + score.value;
   respawn_all();
 });

@@ -4833,6 +4833,8 @@ function respawn_food() {
 
 onCollide("snake", "food", function (s, f) {
   snake_length++;
+  score.value += 1;
+  score.text = "Score: " + score.value;
   respawn_food();
 }); // Wall collision
 
@@ -4840,12 +4842,16 @@ onCollide("snake", "wall", function (s, f) {
   run_action = false; // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
 
   shake(12);
+  score.value = 0;
+  score.text = "Score: " + score.value;
   respawn_all();
 }); // Snake on snake collision
 
 onCollide("snake", "snake", function (s, t) {
   run_action = false;
   shake(12);
+  score.value = 0;
+  score.text = "Score: " + score.value;
   respawn_all();
 });
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
