@@ -4694,13 +4694,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 (0, _kaboom.default)(); // Load sprites
 
 loadSprite("pizza", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png");
-loadSprite("background", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/background.png"); // Background
+loadSprite("background", "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/718600ea-d669-4896-88ed-4434a16ea25c/d7jqxk0-890c981b-e963-4d79-9614-1234aded758d.jpg/v1/fill/w_900,h_600,q_75,strp/_n001__plain_grass_field_by_mango_stock_d7jqxk0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvNzE4NjAwZWEtZDY2OS00ODk2LTg4ZWQtNDQzNGExNmVhMjVjXC9kN2pxeGswLTg5MGM5ODFiLWU5NjMtNGQ3OS05NjE0LTEyMzRhZGVkNzU4ZC5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.PjAGz7yEoy_R9WiO6WSBbQwoe-USS3a1-ONPh7Q573s"); // Background
 
 layers(["background", "game"], "game");
 add([sprite("background"), layer("background")]); // Creating map & key variables
 
 var block_size = 50;
-var map = addLevel(["==============", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=            = ", "=============="], {
+var map = addLevel(["==================", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=================="], {
   width: block_size,
   height: block_size,
   pos: vec2(0, 0),
@@ -4872,7 +4872,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61708" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57361" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
