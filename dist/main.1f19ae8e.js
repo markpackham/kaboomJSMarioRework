@@ -4699,7 +4699,7 @@ var map = addLevel(["==============", "=            = ", "=            = ", "=  
   height: block_size,
   pos: vec2(0, 0),
   "=": function _() {
-    return [rect(block_size, block_size), color(255, 0, 0), area(), "wall"];
+    return [rect(block_size, block_size), color(255, 0, 100), area(), "wall"];
   }
 });
 var directions = {
@@ -4866,7 +4866,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59464" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59487" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
