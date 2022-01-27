@@ -64,6 +64,9 @@ let run_action = false;
 let snake_length = 3;
 let snake_body = [];
 
+// Scoreboard
+const score = add([text("Score: 0"), pos(0, 0), { value: 0 }]);
+
 // Spawn Snake
 function respawn_snake() {
   destroyAll("snake");

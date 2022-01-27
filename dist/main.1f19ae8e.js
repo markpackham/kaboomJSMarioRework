@@ -4717,7 +4717,11 @@ var directions = {
 var current_direction = directions.RIGHT;
 var run_action = false;
 var snake_length = 3;
-var snake_body = []; // Spawn Snake
+var snake_body = []; // Scoreboard
+
+var score = add([text("Score: 0"), pos(0, 0), {
+  value: 0
+}]); // Spawn Snake
 
 function respawn_snake() {
   destroyAll("snake");
@@ -4872,7 +4876,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57361" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64754" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
