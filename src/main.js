@@ -12,7 +12,7 @@ loadSprite(
 );
 loadSprite(
   "background",
-  "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/718600ea-d669-4896-88ed-4434a16ea25c/d7jqxk0-890c981b-e963-4d79-9614-1234aded758d.jpg/v1/fill/w_900,h_600,q_75,strp/_n001__plain_grass_field_by_mango_stock_d7jqxk0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NjAwIiwicGF0aCI6IlwvZlwvNzE4NjAwZWEtZDY2OS00ODk2LTg4ZWQtNDQzNGExNmVhMjVjXC9kN2pxeGswLTg5MGM5ODFiLWU5NjMtNGQ3OS05NjE0LTEyMzRhZGVkNzU4ZC5qcGciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.PjAGz7yEoy_R9WiO6WSBbQwoe-USS3a1-ONPh7Q573s"
+  "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"
 );
 
 // Background
