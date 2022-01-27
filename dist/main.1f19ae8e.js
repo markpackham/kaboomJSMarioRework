@@ -4831,6 +4831,12 @@ onCollide("snake", "wall", function (s, f) {
 
   shake(12);
   respawn_all();
+}); // Snake on snake collision
+
+onCollide("snake", "snake", function (s, t) {
+  run_action = false;
+  shake(12);
+  respawn_all();
 });
 },{"kaboom":"../node_modules/kaboom/dist/kaboom.mjs"}],"C:/Users/Mark/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -4860,7 +4866,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59439" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59464" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
