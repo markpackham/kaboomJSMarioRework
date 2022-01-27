@@ -7,8 +7,8 @@ kaboom();
 
 // Load sprites
 loadSprite(
-  "pizza",
-  "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png"
+  "donut",
+  "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/donut.png"
 );
 loadSprite(
   "background",
@@ -184,7 +184,7 @@ function respawn_food() {
   if (food) {
     destroy(food);
   }
-  food = add([sprite("pizza"), pos(new_pos), area(), "food"]);
+  food = add([sprite("donut"), pos(new_pos), area(), "food"]);
 }
 
 // Collision detection

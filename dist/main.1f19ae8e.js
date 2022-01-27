@@ -4693,7 +4693,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // other choices would have been the bundlers esbuild or webpack
 (0, _kaboom.default)(); // Load sprites
 
-loadSprite("pizza", "https://raw.githubusercontent.com/jeremy-miller/snake-kaboom/main/sprites/pizza.png");
+loadSprite("donut", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/donut.png");
 loadSprite("background", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"); // Background
 
 layers(["background", "game"], "game");
@@ -4820,7 +4820,7 @@ function respawn_food() {
     destroy(food);
   }
 
-  food = add([sprite("pizza"), pos(new_pos), area(), "food"]);
+  food = add([sprite("donut"), pos(new_pos), area(), "food"]);
 } // Collision detection
 // onCollide. The function takes in 2 tags for different game object types,
 // and calls a provided callback function if there is a collision of the objects.
