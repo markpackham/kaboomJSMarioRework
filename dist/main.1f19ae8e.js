@@ -4701,19 +4701,27 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
-// add location https://docs.replit.com/tutorials/21-build-snake-with-kaboom
+// https://docs.replit.com/tutorials/21-build-snake-with-kaboom
 var _require = require("./directions.js"),
     directions = _require.directions;
 
 (0, _kaboom.default)(); // Load sprites
 
 loadSprite("donut", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/donut.png");
-loadSprite("background", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"); // Background
-
-layers(["background", "game"], "game");
-add([sprite("background"), layer("background")]); // Creating map & key variables
+loadSprite("background", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"); // Key variables
 
 var block_size = 50;
+var current_direction = directions.RIGHT;
+var run_action = false;
+var snake_length = 3;
+var snake_body = [];
+var move_delay = 0.2;
+var timer = 0;
+var food = null; // Background
+
+layers(["background", "game"], "game");
+add([sprite("background"), layer("background")]); // Creating map
+
 var map = addLevel(["==================", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=                = ", "=================="], {
   width: block_size,
   height: block_size,
@@ -4721,11 +4729,7 @@ var map = addLevel(["==================", "=                = ", "=             
   "=": function _() {
     return [rect(block_size, block_size), color(255, 0, 100), area(), "wall"];
   }
-});
-var current_direction = directions.RIGHT;
-var run_action = false;
-var snake_length = 3;
-var snake_body = []; // Scoreboard
+}); // Scoreboard
 
 var score = add([text("Score: 0"), pos(0, 0), {
   value: 0
@@ -4775,9 +4779,7 @@ onKeyPress("right", function () {
   if (current_direction != directions.LEFT) {
     current_direction = directions.RIGHT;
   }
-});
-var move_delay = 0.2;
-var timer = 0; // Kaboom.js has a function onUpdate which can be used to update game objects on each frame
+}); // Kaboom.js has a function onUpdate which can be used to update game objects on each frame
 
 onUpdate(function () {
   if (!run_action) return;
@@ -4820,8 +4822,6 @@ onUpdate(function () {
   }
 }); // Spawn snake food
 
-var food = null;
-
 function respawn_food() {
   var new_pos = rand(vec2(2, 2), vec2(12, 12));
   new_pos.x = Math.floor(new_pos.x);
@@ -4846,7 +4846,7 @@ onCollide("snake", "food", function (s, f) {
   respawn_food();
 }); // Wall collision
 
-onCollide("snake", "wall", function (s, f) {
+onCollide("snake", "wall", function (s, w) {
   run_action = false; // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
 
   shake(12);
@@ -4890,7 +4890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58909" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60408" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

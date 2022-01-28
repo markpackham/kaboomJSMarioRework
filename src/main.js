@@ -1,6 +1,6 @@
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
-// add location https://docs.replit.com/tutorials/21-build-snake-with-kaboom
+// https://docs.replit.com/tutorials/21-build-snake-with-kaboom
 
 import kaboom from "kaboom";
 
@@ -18,14 +18,22 @@ loadSprite(
   "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"
 );
 
+// Key variables
+const block_size = 50;
+let current_direction = directions.RIGHT;
+let run_action = false;
+let snake_length = 3;
+let snake_body = [];
+let move_delay = 0.2;
+let timer = 0;
+let food = null;
+
 // Background
 layers(["background", "game"], "game");
 
 add([sprite("background"), layer("background")]);
 
-// Creating map & key variables
-const block_size = 50;
-
+// Creating map
 const map = addLevel(
   [
     "==================",
@@ -54,11 +62,6 @@ const map = addLevel(
     ],
   }
 );
-
-let current_direction = directions.RIGHT;
-let run_action = false;
-let snake_length = 3;
-let snake_body = [];
 
 // Scoreboard
 const score = add([text("Score: 0"), pos(0, 0), { value: 0 }]);
@@ -120,8 +123,6 @@ onKeyPress("right", () => {
   }
 });
 
-let move_delay = 0.2;
-let timer = 0;
 // Kaboom.js has a function onUpdate which can be used to update game objects on each frame
 onUpdate(() => {
   if (!run_action) return;
@@ -172,8 +173,6 @@ onUpdate(() => {
 
 // Spawn snake food
 
-let food = null;
-
 function respawn_food() {
   let new_pos = rand(vec2(2, 2), vec2(12, 12));
   new_pos.x = Math.floor(new_pos.x);
@@ -199,7 +198,7 @@ onCollide("snake", "food", (s, f) => {
 });
 
 // Wall collision
-onCollide("snake", "wall", (s, f) => {
+onCollide("snake", "wall", (s, w) => {
   run_action = false;
   // "shakes" the screen in a way that makes it feel like the snake has crashed heavily
   shake(12);
