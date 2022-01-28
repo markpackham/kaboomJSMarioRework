@@ -1,5 +1,6 @@
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
+// add location https://docs.replit.com/tutorials/21-build-snake-with-kaboom
 
 import kaboom from "kaboom";
 
@@ -174,7 +175,7 @@ onUpdate(() => {
 let food = null;
 
 function respawn_food() {
-  let new_pos = rand(vec2(1, 1), vec2(13, 13));
+  let new_pos = rand(vec2(2, 2), vec2(12, 12));
   new_pos.x = Math.floor(new_pos.x);
   new_pos.y = Math.floor(new_pos.y);
   new_pos = new_pos.scale(block_size);

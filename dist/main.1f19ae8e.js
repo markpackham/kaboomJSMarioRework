@@ -4701,6 +4701,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // need to have parcel installed to run this
 // other choices would have been the bundlers esbuild or webpack
+// add location https://docs.replit.com/tutorials/21-build-snake-with-kaboom
 var _require = require("./directions.js"),
     directions = _require.directions;
 
@@ -4822,7 +4823,7 @@ onUpdate(function () {
 var food = null;
 
 function respawn_food() {
-  var new_pos = rand(vec2(1, 1), vec2(13, 13));
+  var new_pos = rand(vec2(2, 2), vec2(12, 12));
   new_pos.x = Math.floor(new_pos.x);
   new_pos.y = Math.floor(new_pos.y);
   new_pos = new_pos.scale(block_size);
@@ -4889,7 +4890,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62662" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58909" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

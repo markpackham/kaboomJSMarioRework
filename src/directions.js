@@ -1,4 +1,4 @@
-var directions = {
+let directions = {
   UP: "up",
   DOWN: "down",
   LEFT: "left",
