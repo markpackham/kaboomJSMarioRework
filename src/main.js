@@ -18,6 +18,12 @@ loadSprite(
   "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"
 );
 
+// Load sounds
+loadSound(
+  "vanish",
+  "https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"
+);
+
 // Key variables
 const block_size = 50;
 let current_direction = directions.RIGHT;
@@ -181,6 +187,7 @@ function respawn_food() {
 
   if (food) {
     destroy(food);
+    play("vanish");
   }
   food = add([sprite("donut"), pos(new_pos), area(), "food"]);
 }
