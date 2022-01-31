@@ -4708,7 +4708,8 @@ var _require = require("./directions.js"),
 (0, _kaboom.default)(); // Load sprites
 
 loadSprite("donut", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/donut.png");
-loadSprite("background", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg");
+loadSprite("background", "https://raw.githubusercontent.com/markpackham/kaboomJSSnake/master/src/sprites/grass_field.jpg"); // Load sounds
+
 loadSound("vanish", "https://assets.mixkit.co/sfx/preview/mixkit-arcade-retro-game-over-213.mp3"); // Key variables
 
 var block_size = 50;
@@ -4892,7 +4893,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53844" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
